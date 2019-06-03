@@ -2,16 +2,16 @@
 
 さて、ここまではCSSと全く同じ書き方をしてきたわけですが、ここからはSass流の書き方を学んでいきましょう。まず最初に`variables`の使い方から学びます。variablesは例えばサイト全体での基本となる色やフォントサイズなどを指定したい場合に利用します。例えば上記の例ではbodyに`color: #ddd;`と指定しました。これをvariablesを使って書き直すと以下のようになります。
 
+```scss
+/* app.scss */
 
-`app.scss`
-```SCSS
 $base-color: #ddd;
-
 ...
 ```
 
-_base.scss
-```SCSS
+```scss
+/* _base.scss */
+
 body {
   font-size: 12px;
   line-height: 1.4;
@@ -67,6 +67,7 @@ body {
   padding: 0 15px;
 }
 ```
+
 このように、`padding:0 15px;`を定義する時に全てのセレクタを書くのもいいですが`extend`を使う書き方もあります。extendを使うと一つのセレクタのスタイルを他のセレクタで`@extend セレクタ名`で利用することが出来ます。例えば上記のCSSは以下のように書き換えられます。
 
 ```SCSS
@@ -166,7 +167,7 @@ mixinを使うとベンダープレフィックスのように重要だけど一
 
 このようにborder-radiusを定義する度にベンダープレフィックスを含めて3行書く必要があります。mixinを使うとこれを以下のように書き換えられます。
 
-```SCSS
+```scss
 @mixin border-radius($radius) {
   border-radius: $radius;
   -webkit-border-radius: $radius;
@@ -177,11 +178,12 @@ mixinを使うとベンダープレフィックスのように重要だけど一
   @include border-radius(5px);
 }
 ```
+
 ここで注目してもらいたいのが@mixinの中の($radius)という部分です。この部分を引数と呼び、ここに入れた値はその後、`border-radius: $radius;`のように再利用されています。
 
 例えば、上の例ではこの引数の部分に`5px`が入っていますが、5pxだけではなく他の数字を入れることで全ての`border-radius`をmixinで簡単に書くことが出来ます。
 
-```SCSS
+```scss
 @include border-radius(1em); /* 1emのborder-radius */
 @include border-radius(10px); /* 10pxのborder-radius */
 @include border-radius(50%); /* 50%のborder-radius */
@@ -200,7 +202,3 @@ Sassを使いこなすとスタイルをより分かりやすく少ない行数�
 ### 動画で学ぶ
 
 [Sass/SCSS入門 - ドットインストール](https://dotinstall.com/lessons/basic_sass)
-
-### 本で学ぶ
-
-[Web制作者のためのSassの教科書 改訂2版 Webデザインの現場で必須のCSSプリプロセッサ](https://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AESass%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E6%94%B9%E8%A8%822%E7%89%88-Web%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E7%8F%BE%E5%A0%B4%E3%81%A7%E5%BF%85%E9%A0%88%E3%81%AECSS%E3%83%97%E3%83%AA%E3%83%97%E3%83%AD%E3%82%BB%E3%83%83%E3%82%B5-%E5%B9%B3%E6%BE%A4-%E9%9A%86/dp/4295002356/ref=sr_1_1?ie=UTF8&qid=1512461344&sr=8-1&keywords=Sass)
