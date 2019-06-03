@@ -46,7 +46,7 @@ body {
 
 そうすると、上の例のように文字数が多く分かりづらくなります。これをSassでは次のように書き換えることが出来ます。
 
-```SCSS
+```scss
 .card-comments {
   ...
   a {...}
@@ -70,7 +70,7 @@ body {
 
 このように、`padding:0 15px;`を定義する時に全てのセレクタを書くのもいいですが`extend`を使う書き方もあります。extendを使うと一つのセレクタのスタイルを他のセレクタで`@extend セレクタ名`で利用することが出来ます。例えば上記のCSSは以下のように書き換えられます。
 
-```SCSS
+```scss
 .col-padding {
   padding: 0 15px;
 }
@@ -92,7 +92,7 @@ body {
 
 これをコンパイルすると次のようになります。
 
-```SCSS
+```scss
 .col-padding, .col-1, .col-2, .col-3, .col-lg-1, .col-lg-2, .col-lg-3 {
   padding: 0 15px;
 }
@@ -124,7 +124,7 @@ body {
 
 このやり方でも良いのですが、Sassのオペレーターを使うともっと簡単にすることが出来ます。
 
-```SCSS
+```scss
 .col-1 {
   flex-basis: 1 / 3 * 100%;
 }
